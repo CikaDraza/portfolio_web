@@ -2,10 +2,25 @@ import React from "react";
 import "./Header.scss";
 
 export default function Header() {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  function toggleVisibility() {
+    const visbleBtn = window.scrollY;
+    visbleBtn > 100 ? setIsVisible(() => true) : setIsVisible(() => false);
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
+
   return (
     <header>
       <div className="container">
-        <div className="header-wrapper">
+        <div className={isVisible ? "header-wrapper scroll-down" : "header-wrapper"}>
+
           <nav className="nav-bar">
             <ul>
               <li>
@@ -31,8 +46,9 @@ export default function Header() {
           </div>
 
           <div className="contact-btn">
-            <button>Contact Me</button>
+            <button id="#contact" className="action--shine">Contact Me</button>
           </div>
+
         </div>
       </div>
     </header>

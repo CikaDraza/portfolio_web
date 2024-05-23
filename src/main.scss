@@ -1,3 +1,4 @@
+@import "mixins";
 @import "./components/header/Header.scss";
 @import "./components/footer/Footer.scss";
 
@@ -15,4 +16,7 @@ body {
 .container {
   width: 66vw;
   margin: 0 auto;
+  @include laptop {
+    width: 90vw;
+  }
 }

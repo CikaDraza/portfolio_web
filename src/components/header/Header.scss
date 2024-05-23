@@ -1,28 +1,151 @@
 header {
   padding: 1rem 0;
   background-color: #2e2f41;
+  position: relative;
+  z-index: 3;
+
+  .container {
+    position: relative;
+  }
 
   .header-wrapper {
+    position: fixed;
+    width: inherit;
     border-radius: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: darkorchid;
-    padding: 1.25rem 1rem;
+    background-color: transparent;
+    padding: .75rem 1rem;
+    box-sizing: border-box;
+    transition: all .5s cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+
+  .scroll-down {
+    transition: all .5s cubic-bezier(0, 0, 0.2, 1) 0ms;
+    background-color: #1E1F2B;
   }
 
   nav.nav-bar {
+    flex: 1;
     ul {
       display: flex;
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     a {
       text-decoration: none;
       color: black;
       margin-right: 1rem;
+      font-size: .75rem;
+      color: #f4f4f4;
+      position: relative;
+      padding-bottom: .25rem;
+    }
+    a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background-color: #f4f4f4;
+      transition: width 0.3s ease;
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      width: 0;
+      height: 1px;
+      background-color: #f4f4f4;
+      transition: width 0.3s ease;
+    }
+    .nav-bar a::before {
+      transform: translateX(-50%);
+    }
+    .nav-bar a::after {
+      transform: translateX(-50%);
+    }
+    li:hover a::before {
+      width: calc(100% - 50%);
+    }
+    li:hover a::after {
+      width: calc(100% - 50%);
+    }
+  }
+
+  .owner {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    .bold-name {
+      font-weight: 700;
+      color: #f4f4f4;
+      font-size: 1.25rem;
+    }
+    span {
+      color: #f4f4f4;
+      font-size: 1.25rem;
+      padding-left: .25rem;
+      font-weight: 300;
+    }
+  }
+
+  .contact-btn {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background-color: transparent;
+      border: thin solid #f4f4f4;
+      border-radius: 1.5rem;
+      padding: .5rem 1rem;
+      color: #f4f4f4;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 400%;
+        background-color: rgb(255, 255, 255);
+        transform: rotate(-30deg);
+        top: -120%;
+        left: -120%;
+        z-index: -1;
+      }
+  
+      &:hover::before {
+        animation: animate 0.3s 1;
+        top: -120%;
+        left: 10%;
+        transition: animation 1s ease-in-out;
+      }
+  
+      @keyframes animate {
+        from {
+          top: -120%;
+          left: -60%;
+        }
+        to {
+          top: -120%;
+          left: 10%;
+        }
+      }
+    }
+  
+    .action--shine {
+      background-color: transparent;
+      position: relative;
+    }
+
+    button:hover {
+      z-index: 3;
+      color: #1E1F2B;
     }
   }
 }
