@@ -117,6 +117,8 @@ header {
         top: -120%;
         left: -120%;
         z-index: -1;
+        animation: animate_clear 0.3s 1;
+        transition: animation 1s ease-in-out;
       }
   
       &:hover::before {
@@ -134,6 +136,17 @@ header {
         to {
           top: -120%;
           left: 10%;
+        }
+      }
+
+      @keyframes animate_clear {
+        from {
+          top: -120%;
+          left: 0%;
+        }
+        to {
+          top: -120%;
+          left: -120%;
         }
       }
     }

@@ -679,6 +679,11 @@ section {
         align-items: center;
         justify-content: center;
         font-size: 1rem;
+        z-index: 3;
+        color: #f4f4f4;
+        svg {
+          fill: #f4f4f4;
+        }
         &:before {
           content: "";
           position: absolute;
@@ -689,6 +694,8 @@ section {
           top: -120%;
           left: -120%;
           z-index: -1;
+          animation: animate_clear 0.3s 1;
+          transition: animation 1s ease-in-out;
         }
         svg {
           width: 25px;
@@ -709,6 +716,16 @@ section {
           to {
             top: -120%;
             left: 10%;
+          }
+        }
+        @keyframes animate_clear {
+          from {
+            top: -120%;
+            left: 10%;
+          }
+          to {
+            top: -120%;
+            left: -120%;
           }
         }
       }

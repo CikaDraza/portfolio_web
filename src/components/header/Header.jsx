@@ -46,7 +46,11 @@ export default function Header() {
           </div>
 
           <div className="contact-btn">
-            <button id="#contact" className="action--shine">Contact Me</button>
+            <a href="#contact">
+              <button className="action--shine">
+                  Contact me
+              </button>
+            </a>
           </div>
 
         </div>
