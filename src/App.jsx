@@ -43,7 +43,6 @@ function App() {
       const response = await axios.post('https://api.elasticemail.com/v2/email/send', null, {
         params: payload,
       });
-      console.log('Response Data:', response.data);
       if (response.data.success) {
         setStatus('Email sent successfully!');
         setName('');
@@ -51,11 +50,9 @@ function App() {
         setMessage('');
       } else {
         setStatus('Failed to send email.');
-        console.error('Email sending failed:', response.data);
       }
     } catch (error) {
       setStatus('Failed to send email.');
-      console.error('Email sending failed:', response.data);
     }
   };
 
