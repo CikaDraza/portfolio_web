@@ -81,10 +81,14 @@ header {
     flex: 1;
     display: flex;
     justify-content: center;
+    cursor: pointer;
     .bold-name {
       font-weight: 700;
       color: #f4f4f4;
       font-size: 1.25rem;
+    }
+    a {
+      text-decoration: none;
     }
     span {
       color: #f4f4f4;

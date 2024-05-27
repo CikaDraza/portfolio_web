@@ -39,10 +39,10 @@ export default function Header() {
           </nav>
 
           <div className="owner">
-            <div>
+            <a href="#hero">
               <span className="bold-name">Stefan</span>
               <span>Djordjevic</span>
-            </div>
+            </a>
           </div>
 
           <div className="contact-btn">
