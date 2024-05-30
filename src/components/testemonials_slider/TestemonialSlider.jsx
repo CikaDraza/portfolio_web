@@ -1,14 +1,16 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
+import useMediaQuery from "../media_query_hook/useMediaQuery";
 
 function TestemonialSlider() {
   let sliderRef = useRef(null);
+  const match = useMediaQuery('(max-width: 700px)')
 
   const settings = {
     infinite: true,
     draggable: true,
     arrows: false,
-    slidesToShow: 3,
+    slidesToShow: match ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500

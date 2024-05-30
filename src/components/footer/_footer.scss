@@ -55,8 +55,12 @@ footer {
       list-style: none;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       li {
         padding-right: 1rem;
+        @include mobile {
+          padding-bottom: .5rem;
+        }
         a {
           text-decoration: none;
           color: #ababab;
@@ -75,6 +79,7 @@ footer {
     justify-content: space-between;
     position: relative;
     padding-top: 5rem;
+    flex-wrap: wrap;
     &::before {
       content: '';
       position: absolute;
@@ -106,14 +111,28 @@ footer {
       color: #f4f4f4;
       flex: 1;
       margin: auto;
+      @include mobile {
+        width: 100%;
+        flex: auto;
+        order: 3;
+        text-align: center;
+      }
     }
     .social-media {
       flex: 1;
+      @include mobile {
+        flex: auto;
+        width: 100%;
+        order: 2;
+      }
       ul {
         display: flex;
         justify-content: center;
         align-items: center;
         list-style: none;
+        @include mobile {
+          padding: 0;
+        }
         li {
           padding-right: 1rem;
         }
@@ -124,6 +143,12 @@ footer {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      @include mobile {
+        flex: auto;
+        width: 100%;
+        order: 1;
+        justify-content: center;
+      }
       a {
         color: #f4f4f4;
       }

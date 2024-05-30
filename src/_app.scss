@@ -1,7 +1,11 @@
 section {
-  padding: 15rem 0;
+  padding: 10rem 0;
   height: 100vh;
   box-sizing: border-box;
+  @include mobile {
+    padding: 5rem 0;
+    height: 80vh;
+  }
 }
 
 #hero {
@@ -31,9 +35,18 @@ section {
         font-size: 5rem;
         padding: 0 2rem;
         color: #f4f4f4;
+        @include mobile {
+          font-size: 2.5rem;
+          padding: 0;
+        }
       }
     }
+
     .action-buttons {
+      @include mobile {
+        flex-wrap: wrap;
+      }
+
       button {
         border: thin solid #f4f4f4;
         background-color: transparent;
@@ -43,7 +56,13 @@ section {
         position: relative;
         overflow: hidden;
         cursor: pointer;
+        @include mobile {
+          width: 100%;
+          margin-bottom: 1rem;
+          margin-right: 0;
+        }
       }
+
       .first::before {
         content: "";
         position: absolute;
@@ -55,6 +74,9 @@ section {
         left: 0%;
         z-index: -1;
         animation: button_overlay_clear 0.3s 1;
+        @include mobile {
+          height: 333%;
+        }
       }
 
       .first:hover {
@@ -84,6 +106,9 @@ section {
         left: -120%;
         z-index: -1;
         animation: button_two_overlay_clear 0.3s 1;
+        @include mobile {
+          height: 333%;
+        }
       }
 
       .second:hover {
@@ -141,13 +166,31 @@ section {
   background-color: #060612;
   .wrapper {
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
   }
   .illustration, .about-text {
     flex: 1;
+    @include mobile {
+      width: 100%;
+      flex: auto;
+    }
+  }
+  .illustration {
+    @include mobile {
+      width: 100%;
+      order: 2;
+      display: flex;
+      justify-content: center;
+      svg {
+        width: 200px;
+        height: auto;
+      }
+    }
   }
   .about-text {
     margin: auto 0;
+    text-align: center;
     .badge {
       display: inline-block;
       border: thin solid #BA68C8;
@@ -165,9 +208,15 @@ section {
     h2 {
       font-size: 4rem;
       margin: 0;
+      @include mobile {
+        font-size: 2.5rem;
+      }
     }
     p {
       font-size: .75rem;
+      @include mobile {
+        font-size: .5rem;
+      }
     }
   }
 }
@@ -201,6 +250,10 @@ section {
         text-align: center;
         font-size: 4rem;
         margin: 0;
+        @include mobile {
+          font-size: 2.5rem;
+          padding: 0 .125rem;
+        }
       }
     }
     .select-filter {
@@ -246,6 +299,10 @@ section {
       border-radius: .75rem;
       flex: 0 0 auto;
       margin-right: 20px;
+      @include mobile {
+        width: 200px;
+        height: 300px;
+      }
       .card-caption {
         position: absolute;
         top: 50%;
@@ -256,9 +313,16 @@ section {
         z-index: 1;
         width: 100%;
         color: #f4f4f4;
+        @include mobile {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
         h3 {
           font-size: 3rem;
           margin: .25rem 0;
+          @include mobile {
+            font-size: 2rem;
+          }
         }
       }
       &:hover .card-caption {
@@ -275,6 +339,9 @@ section {
         height: 600px;
         z-index: 0;
         transition: all .3s ease-in-out;
+        @include mobile {
+          height: 300px;
+        }
       }
       &:hover .carousel-img {
         transform: scale(1.05);
@@ -296,7 +363,7 @@ section {
     position: absolute;
     top: 60%;
     width: 100%;
-    z-index: 5;
+    z-index: 3;
     button {
       width: 50px;
       height: 50px;
@@ -308,10 +375,16 @@ section {
     .prev {
       position: absolute;
       left: -3%;
+      @include mobile {
+        left: 0;
+      }
     }
     .next {
       position: absolute;
       right: -3%;
+      @include mobile {
+        right: 0;
+      }
     }
   }
   .carousel-indicator {
@@ -379,7 +452,9 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
-
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
     .card {
       background-image: radial-gradient(circle at 50% 100%, #2e364f80 1%, transparent);
       color: #f4f4f4;
@@ -405,6 +480,20 @@ section {
       }
       &:nth-child(4) {
         grid-column: 2 / 4;
+      }
+      @include mobile {
+        &:nth-child(1) {
+          grid-column: 1 / 1;
+        }
+        &:nth-child(2) {
+          grid-column: 1 / 1;
+        }
+        &:nth-child(3) {
+          grid-column: 1 / 1;
+        }
+        &:nth-child(4) {
+          grid-column: 1 / 1;
+        }
       }
     }
     h3 {
@@ -468,6 +557,10 @@ section {
         text-align: center;
         font-size: 4rem;
         margin: 0;
+        @include mobile {
+          margin-top: 1rem;
+          font-size: 2.5rem;
+        }
       }
     }
     p {
@@ -480,6 +573,9 @@ section {
   }
   .slider-block {
     margin-top: 5rem;
+    @include mobile {
+      margin-top: 0rem;
+    }
   }
   .slider-container {
     position: relative;
@@ -512,6 +608,10 @@ section {
       flex-direction: column;
       justify-content: space-between;
       padding: 1rem 0;
+      @include mobile {
+        width: 300px;
+        height: auto;
+      }
       .card-caption {
         blockquote {
           color: #b5b8ea;
@@ -521,7 +621,7 @@ section {
         display: flex;
         align-items: center;
         .avatar {
-          width: 35px;
+          min-width: 35px;
           height: 35px;
           background-color: #6919FF;
           border-radius: 100%;
@@ -547,11 +647,18 @@ section {
   align-items: center;
   .wrapper {
     display: flex;
+    @include mobile {
+      flex-wrap: wrap;
+    }
   }
   .contact-text {
     padding-top: 3rem;
     padding-bottom: 3rem;
     max-width: 50%;
+    @include mobile {
+      max-width: 100%;
+      text-align: center;
+    }
     .badge {
       display: inline;
       border: thin solid #6919FF;
@@ -567,8 +674,12 @@ section {
       h2 {
         color: #f4f4f4;
         text-align: left;
-        font-size: 3rem;
+        font-size: 4rem;
         margin: 0;
+        @include mobile {
+          text-align: center;
+          font-size: 2.5rem;
+        }
       }
     }
     p {
@@ -582,6 +693,11 @@ section {
   .contact-form {
     width: 50%;
     margin-inline-start: 5rem;
+    @include mobile {
+      width: 100%;
+      margin-inline-start: 0;
+      margin: 0 1rem;
+    }
     .input-wrapp > div {
       margin: 1rem 0;
     }
@@ -605,12 +721,20 @@ section {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      @include mobile {
+        flex-wrap: wrap;
+      }
     }
     .email-me {
       display: flex;
       flex: 1;
       align-items: center;
       justify-content: flex-start;
+      @include mobile {
+        width: 100%;
+        flex: auto;
+        margin-bottom: 1rem;
+      }
       a {
         display: flex;
         align-items: center;
@@ -632,6 +756,10 @@ section {
       display: flex;
       flex: 1;
       justify-content: flex-end;
+      @include mobile {
+        flex: auto;
+
+      }
       button {
         width: auto;
         background-color: transparent;
@@ -767,7 +895,7 @@ section {
       object-fit: cover;
       transform: translate(-50%, -50%);
       z-index: 0;
-      opacity: .1;
+      opacity: .2;
     }
   }
   .badge-wrapper {
